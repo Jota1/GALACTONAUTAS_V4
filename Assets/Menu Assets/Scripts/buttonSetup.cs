@@ -14,7 +14,7 @@ public class buttonSetup : MonoBehaviour
     public void startGame()
     {
         //Destroy(weather1);
-        SceneManager.LoadScene("Level_Design_V1", LoadSceneMode.Single);
+        SceneManager.LoadScene("CutSceneChegada", LoadSceneMode.Single);
     }
     
     public void exitGame()

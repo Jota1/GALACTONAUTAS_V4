@@ -64,7 +64,6 @@ public class NovoSistemaDeConstrução : MonoBehaviour
 
     public void NewBuild(GameObject _go)
     {
-        Debug.Log("EntrouAquiENãoDeveria");
         previewGameObject = Instantiate(_go, new Vector3((Screen.width / 2) - (100 / 2), (Screen.height / 2) - (100 / 2), 0), Quaternion.identity);
         previewScript = previewGameObject.GetComponent<Preview>();
         IsBuilding = true;
@@ -88,7 +87,6 @@ public class NovoSistemaDeConstrução : MonoBehaviour
 
     private void DoBuildRay()
     {
-        Debug.Log("isBuilding");
         Vector3 rayOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.0f));
         RaycastHit hit;
 

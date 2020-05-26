@@ -42,7 +42,8 @@ public class CraftingGenerator : MonoBehaviour
 			GeneratorQuant -= 1;
 			GeneratorQuantText.text = "" + GeneratorQuant;
 			constructionUI.SetActive(false);
-			Cursor.lockState = CursorLockMode.None;
+			Cursor.lockState = CursorLockMode.Locked;
+			Cursor.visible = false;
 			Time.timeScale = 1;
 			UpdateInterface.CursorLock = true;
 

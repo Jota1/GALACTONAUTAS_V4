@@ -33,7 +33,7 @@ public class UpdateInterface : MonoBehaviour
 	public void Update2()
 	{
 		currentEnergy.text = ""+ Generators.currentEnergy;
-		fullEnergy.text = "" + Generators.maxCapacity;
+		fullEnergy.text = "" + Generators.MaxCapacity;
 	}
 
 	public void Update()

@@ -65,7 +65,7 @@ public class Preview : MonoBehaviour
         {
             if (other.CompareTag("Ground"))
             {
-                Debug.Log("NoChão");
+              
                 inTheGround = true;
             }
 
@@ -74,7 +74,7 @@ public class Preview : MonoBehaviour
         if(!other.CompareTag("Ground"))
         {
             colWithObjects = true;
-            Debug.Log("ColidindoComObjetos");
+        
         }
     }
 
@@ -84,14 +84,14 @@ public class Preview : MonoBehaviour
         {
             if (other.CompareTag("Ground"))
             {
-                Debug.Log("SemChão");
+               
                 inTheGround = false;
             }
         }
 
             if (!other.CompareTag("Ground"))
             {
-                Debug.Log("NãoColidindoComObjetos");
+     
                 colWithObjects = false;
             }
     }      

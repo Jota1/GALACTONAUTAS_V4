@@ -5,7 +5,7 @@ using UnityEngine;
 public class Biomassa : MonoBehaviour
 {
 
-    public Inventory inventory;
+    private Inventory inventory;
     public Item item;
     public int amount;
     public static bool BioAlien;
@@ -15,8 +15,9 @@ public class Biomassa : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Generators.maxCapacity += 10;
+        Generators.MaxCapacity += 10;
         UpdateInterface.instance.Update2();
+        inventory = GameObject.Find("GameManager").GetComponent<Inventory>();
     }
 
     // Update is called once per frame
@@ -31,9 +32,9 @@ public class Biomassa : MonoBehaviour
 
                 timer = 60;
                 Generators.currentEnergy += 5;
-                if(Generators.currentEnergy > Generators.maxCapacity)
+                if(Generators.currentEnergy > Generators.MaxCapacity)
                 {
-                    Generators.currentEnergy = Generators.maxCapacity;
+                    Generators.currentEnergy = Generators.MaxCapacity;
                 }
                 UpdateInterface.instance.Update2();
             }
@@ -42,15 +43,16 @@ public class Biomassa : MonoBehaviour
 
     public void GenerateEnergy()
     {
-        if (HasMaterials(inventory) && Generators.currentEnergy < Generators.maxCapacity)
+        if (HasMaterials(inventory) && Generators.currentEnergy < Generators.MaxCapacity)
         {
+            
             RemoveMaterials(inventory);
 
             Generators.currentEnergy += 10;
 
-            if(Generators.currentEnergy > Generators.maxCapacity)
+            if(Generators.currentEnergy > Generators.MaxCapacity)
             {
-                Generators.currentEnergy = Generators.maxCapacity;
+                Generators.currentEnergy = Generators.MaxCapacity;
             }
 
             UpdateInterface.instance.Update2();
@@ -61,14 +63,14 @@ public class Biomassa : MonoBehaviour
     public bool HasMaterials(ItemContainer itemContainer)
     {
 
-        if (itemContainer.ItemCount(item.name) < amount)
-        {
 
+        if (itemContainer.ItemCount(item.name) < 1)
+        {
             Debug.LogWarning("You don't have the required materals.");
             return false;
-        }
+       }
 
-        return true;
+       return true;
     }
 
     public void RemoveMaterials(ItemContainer itemContainer)

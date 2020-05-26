@@ -57,7 +57,7 @@ public class ChangePlayer : MonoBehaviour
 
     public void Update()
     {
-        Debug.Log(FuelSystem.StartFuel);
+       // Debug.Log(FuelSystem.StartFuel);
        // if(!playerBool && FuelSystem.startFuel <= 0)
         //{
         //    ChangePlayerInteract();

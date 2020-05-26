@@ -12,7 +12,9 @@ public class CheckCercas : MonoBehaviour
     public GameObject Cerca6;
     public GameObject Domo;
     private bool Check;
-
+    public GameObject ChuvaInicial;
+    public AI ai;
+    public GameObject CameraDomo;
 
 
     // Start is called before the first frame update
@@ -31,6 +33,9 @@ public class CheckCercas : MonoBehaviour
             {
 
                 Domo.SetActive(true);
+                ChuvaInicial.SetActive(false);
+                CameraDomo.SetActive(true);
+                ai.SetFalaAtiva(true);
 
                 Check = true;
             }

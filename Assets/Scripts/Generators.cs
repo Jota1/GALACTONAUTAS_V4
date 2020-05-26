@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Generators : MonoBehaviour
 {
-    public static int maxCapacity ;
+    public static int MaxCapacity;
     public static int currentEnergy ;
 
     private void Start()
     {
-        maxCapacity = 0;
-        currentEnergy = 0;
+        MaxCapacity = 0;
+        currentEnergy = 10;
+        UpdateInterface.instance.Update2();
     }
     // Update is called once per frame
     void Update()

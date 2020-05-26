@@ -111,7 +111,9 @@ public class RayCastInteractable : MonoBehaviour
 						craft.OnCraftButtonClick();
 
 					if (bio != null && !Biomassa.BioAlien)
+					{
 						bio.GenerateEnergy();
+					}
 
 					if (converter != null && ChangePlayer.playerBool)
 						converter.activate();

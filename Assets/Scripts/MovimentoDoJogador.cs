@@ -18,7 +18,8 @@ public class MovimentoDoJogador : MonoBehaviour
     bool noChao;
     float z;
     public float raioDetecao;
-    
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -64,6 +65,8 @@ public class MovimentoDoJogador : MonoBehaviour
 
         //print(velocidadeDeQueda);
     }
+
+  
 
     private void OnDrawGizmos()
     {
