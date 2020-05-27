@@ -8,6 +8,7 @@ public class ChangePlayer : MonoBehaviour
     public GameObject player;
     public GameObject car;
     public GameObject car2;
+    public GameObject cam;
 
     InventoryUI inventoryUI;
     Inventory inventory;
@@ -22,15 +23,10 @@ public class ChangePlayer : MonoBehaviour
 
     public void ChangePlayerInteract()
     {
-       if(FuelSystem.StartFuel <= 0)
-        {
-            if(Generators.currentEnergy >= 5)
-            {
-                Generators.currentEnergy -= 5;
-                FuelSystem.StartFuel = 100;
-                UpdateInterface.instance.Update2();
-            }
-        }
+      
+         FuelSystem.StartFuel = 100;
+         UpdateInterface.instance.Update2();
+         
 
        if(playerBool)
         {
@@ -39,15 +35,17 @@ public class ChangePlayer : MonoBehaviour
            //inventoryUI.UpdateUIInventory();
             car.SetActive(true);
             car2.SetActive(false);
+            cam.SetActive(true);
             player.SetActive(false);
             playerBool = false;
         }
 
        else
         {
-        
+
             //Inventory.currentInventory = "Player";
             //InventoryUI.instance.UpdateUI();
+            cam.SetActive(false);
             player.SetActive(true);
             car2.SetActive(true);
             car.SetActive(false);

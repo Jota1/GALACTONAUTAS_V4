@@ -46,7 +46,7 @@ public class AI : MonoBehaviour
     {
         narrativaAtual = 0;
         timer = duraçãoDasFalas;
-        timerAtivarAsCercas = 15;
+        timerAtivarAsCercas = 45;
         gravidadeAtingida = 14;
 
         life = 60;
@@ -126,7 +126,7 @@ public class AI : MonoBehaviour
             {
                 gravidadeAtingida++;
                 text.text = "Nível " + gravidadeAtingida + " Atingido";
-                timerAtivarAsCercas = 15;
+                timerAtivarAsCercas = 45;
             }
 
               if(gravidadeAtingida == 21)
@@ -140,27 +140,27 @@ public class AI : MonoBehaviour
 
         ///*******Vida 0O Player
 
-        if (domo.GetForaDoDomo())
-        {
-            life -= Time.timeScale * 0.1f;
-            lifeIndicatorSld.value = life;
-        }
+    //    if (domo.GetForaDoDomo())
+      //  {
+      //      life -= Time.timeScale * 0.1f;
+      //      lifeIndicatorSld.value = life;
+     //   }
+//
+     //   else if (!domo.GetForaDoDomo() && life < maxLife)
+      //  {
+        //    if (life > maxLife)
+        //    {
+        //        life = maxLife;
+        //    }
+        ///
+         //   life += Time.timeScale * 0.1f;
+       //     lifeIndicatorSld.value = life;
+      //  }
 
-        else if (!domo.GetForaDoDomo() && life < maxLife)
-        {
-            if (life > maxLife)
-            {
-                life = maxLife;
-            }
-
-            life += Time.timeScale * 0.1f;
-            lifeIndicatorSld.value = life;
-        }
-
-        if (life <= 0)
-        {
-            PanelForaDoDomo.SetActive(true);
-        }
+       // if (life <= 0)
+     //   {
+       //     PanelForaDoDomo.SetActive(true);
+      //  }
 
     }
 
