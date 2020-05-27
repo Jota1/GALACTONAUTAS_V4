@@ -16,9 +16,22 @@ public class CraftingGenerator : MonoBehaviour
 	public Inventory inventory;
 	public Text GeneratorQuantText;
 	public Button constructButton;
+	public Button produzir;
 	public static int GeneratorQuant;
 
 
+	public void Update()
+	{
+		if(craftingRecipe.HasMaterials(inventory) && !produzir.interactable)
+		{
+			produzir.interactable = true;
+		}
+
+		else if (!craftingRecipe.HasMaterials(inventory))
+		{
+			produzir.interactable = false;
+		}
+	}
 	public void CraftGenerator()
 	{
 		if (craftingRecipe != null && inventory != null)

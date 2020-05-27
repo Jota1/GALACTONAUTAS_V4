@@ -10,36 +10,34 @@ public class Dome : MonoBehaviour
 
     public AI ai;
 
-    public Slider lifeIndicatorSld;
-    public float maxLife = 60f;
+ 
 
     public Text energiaDoDomoText;
     private int energiaDoDomo;
 
-    private float life;
+
+
+
 
     private bool ForaDoDomo;
 
     // Start is called before the first frame update
     void Start()
     {
+      
         energiaDoDomo = 22;
         energiaDoDomoText.text = energiaDoDomo + "%";
-        lifeIndicatorSld.maxValue = maxLife;
+       
         time = 1;
         segundos = time * 5;
+       
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if(ForaDoDomo)
-        {
-            life -= Time.timeScale;
-            lifeIndicatorSld.value = life;
-        }
-
+       
        segundos -= Time.deltaTime;
 
         if (segundos <= 0 && Generators.currentEnergy > 0)
@@ -58,6 +56,7 @@ public class Dome : MonoBehaviour
 
         if(energiaDoDomo == 0)
         {
+            ForaDoDomo = true;
             gameObject.SetActive(false);
         }
 
@@ -68,6 +67,7 @@ public class Dome : MonoBehaviour
         
         if(other.CompareTag("Player"))
         {
+            print("dentrododomo");
             ai.Avisinho();
             ForaDoDomo = true;
             
@@ -79,9 +79,21 @@ public class Dome : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
+            print("dentrododomo");
             ForaDoDomo = false;
 
         }
+    }
+
+    public bool GetForaDoDomo()
+    {
+        return ForaDoDomo;
+    }
+
+    public void SetEnergiaDoDomo()
+    {
+        energiaDoDomo = 100;
+        energiaDoDomoText.text = energiaDoDomo + "%";
     }
 
 

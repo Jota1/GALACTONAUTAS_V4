@@ -15,6 +15,7 @@ public class CheckCercas : MonoBehaviour
     public GameObject ChuvaInicial;
     public AI ai;
     public GameObject CameraDomo;
+    public GameObject RecarregarDomo;
 
 
     // Start is called before the first frame update
@@ -33,6 +34,7 @@ public class CheckCercas : MonoBehaviour
             {
 
                 Domo.SetActive(true);
+                RecarregarDomo.SetActive(true);
                 ChuvaInicial.SetActive(false);
                 CameraDomo.SetActive(true);
                 ai.SetFalaAtiva(true);

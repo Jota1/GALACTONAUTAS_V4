@@ -19,11 +19,18 @@ public class AI : MonoBehaviour
 
     [TextArea(3,10)]
     public string[] narrativa;
+
     public float duraçãoDasFalas;
 
     public GameObject PanelGameOver;
+    public GameObject PanelForaDoDomo;
 
     public Text text;
+
+    public Dome domo;
+    public Slider lifeIndicatorSld;
+    public float maxLife = 60f;
+    private float life;
 
     private bool falaAtiva;
     private bool novafala;
@@ -42,6 +49,9 @@ public class AI : MonoBehaviour
         timerAtivarAsCercas = 15;
         gravidadeAtingida = 14;
 
+        life = 60;
+        lifeIndicatorSld.maxValue = maxLife;
+        lifeIndicatorSld.value = life;
     }
 
     // Update is called once per frame
@@ -125,12 +135,44 @@ public class AI : MonoBehaviour
             }
 
         }
+
+
+
+        ///*******Vida 0O Player
+
+        if (domo.GetForaDoDomo())
+        {
+            life -= Time.timeScale * 0.1f;
+            lifeIndicatorSld.value = life;
+        }
+
+        else if (!domo.GetForaDoDomo() && life < maxLife)
+        {
+            if (life > maxLife)
+            {
+                life = maxLife;
+            }
+
+            life += Time.timeScale * 0.1f;
+            lifeIndicatorSld.value = life;
+        }
+
+        if (life <= 0)
+        {
+            PanelForaDoDomo.SetActive(true);
+        }
+
     }
 
 
     public void SetFalaAtiva(bool state)
     {
         novafala = state;
+    }
+
+    public bool GetFalaAtiva()
+    {
+        return falaAtiva;
     }
 
     public void Avisinho()

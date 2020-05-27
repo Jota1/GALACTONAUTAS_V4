@@ -21,7 +21,10 @@ public class AtivarTriggers : MonoBehaviour
         if(ai.GetnarrativaAtual() == 2 && !triggers[0].activeInHierarchy)
         {
             triggers[0].SetActive(true);
-           
+            barreiraProJogador[0].SetActive(false);
+            barreiraProJogador[1].SetActive(false);
+
+
         }
 
         if(ai.GetnarrativaAtual() == 3)
@@ -35,8 +38,10 @@ public class AtivarTriggers : MonoBehaviour
             }
         }
 
-        if (ai.GetnarrativaAtual() == 4 )
+        if (ai.GetnarrativaAtual() == 4 && !ai.GetFalaAtiva())
         {
+            barreiraProJogador[0].SetActive(false);
+            barreiraProJogador[1].SetActive(false);
             triggers[1].SetActive(true);
 
         }

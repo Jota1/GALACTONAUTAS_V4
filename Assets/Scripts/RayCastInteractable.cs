@@ -44,9 +44,10 @@ public class RayCastInteractable : MonoBehaviour
 			Converter converter = hit.collider.GetComponent<Converter>();
 			ChangePlayer change = hit.collider.GetComponent<ChangePlayer>();
 			Cut itemCut = hit.collider.GetComponent<Cut>();
+			RecarregarDomo domoRecarga = hit.collider.GetComponent<RecarregarDomo>();
 
 
-			if (collect != null || deposit != null || bact != null || craft != null || bio != null || converter != null || change != null || itemCut != null || pickup != null || aluminum != null)
+			if (collect != null || deposit != null || bact != null || craft != null || bio != null || converter != null || change != null || itemCut != null || pickup != null || aluminum != null || domoRecarga != null)
 			{
 
 				if (itemCut != null)
@@ -77,7 +78,7 @@ public class RayCastInteractable : MonoBehaviour
 					texture = crosshairE;
 				}
 
-				else if (collect != null || change != null || craft != null)
+				else if (collect != null || change != null || craft != null || domoRecarga != null)
 				{
 			    	texture = crosshairE;
 				}
@@ -131,6 +132,9 @@ public class RayCastInteractable : MonoBehaviour
 							aluminum.ProduzirAluminum();
 						}
 					}
+
+					if(domoRecarga != null)
+						domoRecarga.AtivarUI();
 
 					texture = crosshair;
 
