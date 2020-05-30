@@ -7,7 +7,7 @@ public class AtivarTriggers : MonoBehaviour
     public AI ai;
     public GameObject[] triggers;
     public GameObject[] barreiraProJogador;
-    public Collider[] collidersCercas;
+    public GameObject[] cercasFantasmas;
 
     // Start is called before the first frame update
     void Start()
@@ -32,9 +32,9 @@ public class AtivarTriggers : MonoBehaviour
             barreiraProJogador[0].SetActive(true);
             barreiraProJogador[1].SetActive(true);
 
-            for (int i = 0; i < collidersCercas.Length; i++)
+            for (int i = 0; i < cercasFantasmas.Length; i++)
             {
-                collidersCercas[i].enabled = true;
+                cercasFantasmas[i].SetActive(true);
             }
         }
 
