@@ -7,8 +7,7 @@ using UnityEngine.Video;
 public class CutsceneInicial : MonoBehaviour
 {
     private VideoPlayer video;
-    private float playerCurrentFrame;
-    private float playerFrameCount;
+
 
     public string proximaCena;
 
@@ -16,8 +15,9 @@ public class CutsceneInicial : MonoBehaviour
     void Start()
     {
         video = GetComponent<VideoPlayer>();
-        playerCurrentFrame = video.GetComponent<VideoPlayer>().frame;
-        playerFrameCount = video.GetComponent<VideoPlayer>().frameCount;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
     }
 
     // Update is called once per frame

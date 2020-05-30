@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RecarregarDomo : MonoBehaviour
 {
@@ -8,12 +9,14 @@ public class RecarregarDomo : MonoBehaviour
     public GameObject[] otherUIElements;
     public Dome dome;
     public GameObject Domo;
+    public GameObject Text;
 
 
     public void AtivarUI()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        Text.SetActive(false);
         UpdateInterface.CursorLock = false;
 
         Time.timeScale = 0;
@@ -31,7 +34,7 @@ public class RecarregarDomo : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        UpdateInterface.CursorLock = true;
+       UpdateInterface.CursorLock = true;
 
         Time.timeScale = 1;
 
@@ -48,7 +51,7 @@ public class RecarregarDomo : MonoBehaviour
         if (Generators.currentEnergy >= 5)
         {
             dome.SetEnergiaDoDomo();
-            if(!Domo.activeSelf)
+            if (!Domo.activeSelf)
             {
                 Domo.SetActive(true);
             }
@@ -56,5 +59,7 @@ public class RecarregarDomo : MonoBehaviour
             UpdateInterface.instance.Update2();
             DesativarUI();
         }
+
+        else Text.SetActive(true);
     }
 }
