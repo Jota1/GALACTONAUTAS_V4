@@ -14,7 +14,7 @@ public class Ferramentas : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ferramenta = "nenhuma";
+        ferramenta = "mão";
     }
 
     // Update is called once per frame

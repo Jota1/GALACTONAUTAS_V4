@@ -10,6 +10,8 @@ public class RecarregarDomo : MonoBehaviour
     public Dome dome;
     public GameObject Domo;
     public GameObject Text;
+    public AI Liz;
+    private bool falinha;
 
 
     public void AtivarUI()
@@ -57,6 +59,11 @@ public class RecarregarDomo : MonoBehaviour
             }
             Generators.currentEnergy -= 5;
             UpdateInterface.instance.Update2();
+
+            if(!falinha)
+            {
+                Liz.SetFalaAtiva(true);
+            }
             DesativarUI();
         }
 
