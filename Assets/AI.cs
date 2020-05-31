@@ -30,13 +30,14 @@ public class AI : MonoBehaviour
     public Dome domo;
     public Slider lifeIndicatorSld;
     public float maxLife = 60f;
+    public GameObject anim;
     private float life;
 
     private bool falaAtiva;
     private bool novafala;
     private bool trocarfala;
     private int narrativaAtual;
-    private float timer;
+   // private float timer;
     private float timerAtivarAsCercas;
     private int gravidadeAtingida;
     private bool aviso;
@@ -45,7 +46,7 @@ public class AI : MonoBehaviour
     void Start()
     {
         narrativaAtual = 0;
-        timer = duraçãoDasFalas;
+       // timer = duraçãoDasFalas;
         timerAtivarAsCercas = 45;
         gravidadeAtingida = 14;
 
@@ -54,69 +55,60 @@ public class AI : MonoBehaviour
         lifeIndicatorSld.value = life;
     }
 
+
+
     // Update is called once per frame
     void Update()
     {
         if(novafala)
         {
             Debug.Log(narrativa[narrativaAtual]);
+            anim.SetActive(false);
+            anim.SetActive(true);
             falaAtiva = true;
-            timer = duraçãoDasFalas;
             novafala = false;
             trocarfala = true;
+            
         }
        
         if (falaAtiva)
         {
-            timer -= Time.timeScale;
 
             if (!panelAI.activeSelf || trocarfala)
             {
                 panelAI.SetActive(true);
-                text.text = narrativa[narrativaAtual];
+                anim.SetActive(true);
+                text.text = narrativa[narrativaAtual].ToUpper();
                 trocarfala = false;
                 narrativaAtual++;
             }
 
-            if (timer <= 0)
-            {
-                panelAI.SetActive(false);
-                timer = duraçãoDasFalas;
-                falaAtiva = false;
-
-            }
         }
 
         else
         {
             if( aviso)
             {
-                timer -= Time.timeScale;
+              
 
                 if (!panelAI.activeSelf)
                 {
+                    anim.SetActive(true);
                     panelAI.SetActive(true);
                     text.text = sairDoDomo;
-                }
-
-                if (timer <= 0)
-                {
-                    panelAI.SetActive(false);
-                    timer = duraçãoDasFalas;
-                    aviso = false;
-
                 }
                
             }
         }
 
-        if(narrativaAtual==3 && falaAtiva ==false)
+        if(narrativaAtual==3 && falaAtiva == false)
         {
 
-            if (!panelAI.activeSelf)
+            if (!panelAI.activeSelf && timerAtivarAsCercas >= 40)
             {
                 panelAI.SetActive(true);
-                text.text = "Nível " + gravidadeAtingida + " Atingido";
+                anim.SetActive(true);
+                text.text = "Nível " + gravidadeAtingida + " Atingido".ToUpper(); ;
             }
 
 
@@ -124,8 +116,9 @@ public class AI : MonoBehaviour
 
             if (timerAtivarAsCercas <= 0)
             {
+                anim.SetActive(true);
                 gravidadeAtingida++;
-                text.text = "Nível " + gravidadeAtingida + " Atingido";
+                text.text = "Nível " + gravidadeAtingida + " Atingido".ToUpper(); ;
                 timerAtivarAsCercas = 45;
             }
 
@@ -183,6 +176,26 @@ public class AI : MonoBehaviour
     public int GetnarrativaAtual()
     {
         return narrativaAtual;
+    }
+
+    public void CancelarFala()
+    {
+        if (falaAtiva)
+        {
+            panelAI.SetActive(false);
+            falaAtiva = false;
+        }
+
+        if (aviso)
+        {
+            panelAI.SetActive(false);
+            aviso = false;
+        }
+
+        if(narrativaAtual == 3 && falaAtiva == false)
+        {
+            panelAI.SetActive(false);
+        }
     }
 
 }

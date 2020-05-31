@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class ChangePlayer : MonoBehaviour
 {
     public static bool playerBool;
     public GameObject player;
     public GameObject car;
+    public Transform carPosition;
     public GameObject car2;
-    public GameObject cam;
+    public Collider collider;
+
 
     InventoryUI inventoryUI;
     Inventory inventory;
@@ -21,6 +24,7 @@ public class ChangePlayer : MonoBehaviour
         inventory.onItemChangedCallback += inventoryUI.UpdateUI;
     }
 
+  
     public void ChangePlayerInteract()
     {
       
@@ -35,9 +39,9 @@ public class ChangePlayer : MonoBehaviour
            //inventoryUI.UpdateUIInventory();
             car.SetActive(true);
             car2.SetActive(false);
-            cam.SetActive(true);
             player.SetActive(false);
             playerBool = false;
+            collider.enabled = false;
         }
 
        else
@@ -45,8 +49,9 @@ public class ChangePlayer : MonoBehaviour
 
             //Inventory.currentInventory = "Player";
             //InventoryUI.instance.UpdateUI();
-            cam.SetActive(false);
             player.SetActive(true);
+            car2.transform.position = carPosition.position;
+            car2.transform.rotation = carPosition.rotation;
             car2.SetActive(true);
             car.SetActive(false);
             playerBool = true;
@@ -60,5 +65,10 @@ public class ChangePlayer : MonoBehaviour
         //{
         //    ChangePlayerInteract();
        // }
+
+        if(!collider.enabled && Input.GetKeyDown(KeyCode.V))
+        {
+            ChangePlayerInteract();
+        }
     }
 }

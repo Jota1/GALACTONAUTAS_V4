@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class AluminumProduction : MonoBehaviour
 {
-    //public Item Bauxite;
-    public GameObject bauxite;
+    public Animator anim;
     public GameObject aluminum;
     public Transform positionAluminum;
 
@@ -14,6 +13,12 @@ public class AluminumProduction : MonoBehaviour
 
     public static bool AluminioProduzido = false;
 
+    private void Start()
+    {
+        AluminioProduzido = false;
+        //Generators.currentEnergy = 20;
+        //UpdateInterface.instance.Update2();
+    }
 
     public void ProduzirAluminum()
     {
@@ -21,7 +26,8 @@ public class AluminumProduction : MonoBehaviour
         {
             Instantiate(aluminum, positionAluminum.position, Quaternion.identity);
             AluminioProduzido = true;
-            bauxite.SetActive(true);
+            anim.SetTrigger("Refinando");
+            //bauxite.SetActive(true);
         }
        
     }

@@ -22,15 +22,6 @@ public class TriggerFala : MonoBehaviour
         {
             ai.SetFalaAtiva(true);
             falainicial = true;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log("Saiu");
-            ai.SetFalaAtiva(true);
             Destroy(gameObject);
         }
     }

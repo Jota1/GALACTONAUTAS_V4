@@ -484,7 +484,7 @@ namespace GreatArcStudios
                 pauseMenu.text = "Pause Menu";
             }
 
-            if (Input.GetKeyDown(KeyCode.Escape) && mainPanel.activeSelf == false)
+            if (Input.GetKeyDown(KeyCode.Escape) && mainPanel.activeSelf == false && Time.timeScale != 0)
             {
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
