@@ -10,7 +10,7 @@ public class Generators : MonoBehaviour
     private void Start()
     {
         MaxCapacity = 0;
-        currentEnergy = 10;
+        currentEnergy = 0;
         UpdateInterface.instance.Update2();
     }
     // Update is called once per frame

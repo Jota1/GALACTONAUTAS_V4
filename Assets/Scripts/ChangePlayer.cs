@@ -8,7 +8,7 @@ public class ChangePlayer : MonoBehaviour
     public GameObject player;
     public GameObject car;
     public GameObject car2;
-    public GameObject cam;
+
 
     InventoryUI inventoryUI;
     Inventory inventory;
@@ -35,7 +35,6 @@ public class ChangePlayer : MonoBehaviour
            //inventoryUI.UpdateUIInventory();
             car.SetActive(true);
             car2.SetActive(false);
-            cam.SetActive(true);
             player.SetActive(false);
             playerBool = false;
         }
@@ -45,7 +44,6 @@ public class ChangePlayer : MonoBehaviour
 
             //Inventory.currentInventory = "Player";
             //InventoryUI.instance.UpdateUI();
-            cam.SetActive(false);
             player.SetActive(true);
             car2.SetActive(true);
             car.SetActive(false);

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.ConstrainedExecution;
 using UnityEngine;
 
 public class AtivarTriggers : MonoBehaviour
@@ -8,6 +9,8 @@ public class AtivarTriggers : MonoBehaviour
     public GameObject[] triggers;
     public GameObject[] barreiraProJogador;
     public GameObject[] cercasFantasmas;
+
+    private bool cercasAtivadas;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +30,7 @@ public class AtivarTriggers : MonoBehaviour
 
         }
 
-        if(ai.GetnarrativaAtual() == 3)
+        if(ai.GetnarrativaAtual() == 3 && !cercasAtivadas)
         {
             barreiraProJogador[0].SetActive(true);
             barreiraProJogador[1].SetActive(true);
@@ -36,6 +39,14 @@ public class AtivarTriggers : MonoBehaviour
             {
                 cercasFantasmas[i].SetActive(true);
             }
+
+            cercasAtivadas = true;
+        }
+
+        if (ai.GetnarrativaAtual() == 4 && !ai.GetFalaAtiva())
+        {
+            Debug.Log("ee");
+            ai.SetFalaAtiva(true);
         }
 
         if (ai.GetnarrativaAtual() == 4 && !ai.GetFalaAtiva())

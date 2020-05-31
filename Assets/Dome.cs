@@ -25,7 +25,7 @@ public class Dome : MonoBehaviour
     void Start()
     {
       
-        energiaDoDomo = 22;
+        energiaDoDomo = 51;
         energiaDoDomoText.text = energiaDoDomo + "%";
        
         time = 1;
@@ -40,18 +40,11 @@ public class Dome : MonoBehaviour
        
        segundos -= Time.deltaTime;
 
-        if (segundos <= 0 && Generators.currentEnergy > 0)
-        {
-            Generators.currentEnergy -= 1;
-            UpdateInterface.instance.Update2();
-            segundos = time * 60;
-        }
-
-        else if (segundos <= 0 && energiaDoDomo > 0)
+         if (segundos <= 0 && energiaDoDomo > 0)
         {
             energiaDoDomo -= 1;
             energiaDoDomoText.text = energiaDoDomo + "%";
-            segundos = time * 5;
+            segundos = time * 60;
         }
 
         if(energiaDoDomo == 0)
