@@ -43,9 +43,13 @@ public class AtivarTriggers : MonoBehaviour
             cercasAtivadas = true;
         }
 
-        if (ai.GetnarrativaAtual() == 4 && !ai.GetFalaAtiva())
+        if (ai.GetnarrativaAtual() == 7 && !ai.GetFalaAtiva())
         {
-            Debug.Log("ee");
+            ai.SetFalaAtiva(true);
+        }
+
+        if (ai.GetnarrativaAtual() == 8 && !ai.GetFalaAtiva())
+        {
             ai.SetFalaAtiva(true);
         }
 

@@ -73,7 +73,6 @@ public class AI : MonoBehaviour
        
         if (falaAtiva)
         {
-            //timer -= Time.timeScale;
 
             if (!panelAI.activeSelf || trocarfala)
             {
@@ -84,32 +83,20 @@ public class AI : MonoBehaviour
                 narrativaAtual++;
             }
 
-           // if (timer <= 0)
-           // {
-                
-
-           // }
         }
 
         else
         {
             if( aviso)
             {
-               // timer -= Time.timeScale;
+              
 
                 if (!panelAI.activeSelf)
                 {
+                    anim.SetActive(true);
                     panelAI.SetActive(true);
                     text.text = sairDoDomo;
                 }
-
-               // if (timer <= 0)
-              //  {
-                    panelAI.SetActive(false);
-                   // timer = duraçãoDasFalas;
-                    aviso = false;
-
-               // }
                
             }
         }
@@ -117,7 +104,7 @@ public class AI : MonoBehaviour
         if(narrativaAtual==3 && falaAtiva == false)
         {
 
-            if (!panelAI.activeSelf)
+            if (!panelAI.activeSelf && timerAtivarAsCercas >= 40)
             {
                 panelAI.SetActive(true);
                 anim.SetActive(true);
@@ -129,6 +116,7 @@ public class AI : MonoBehaviour
 
             if (timerAtivarAsCercas <= 0)
             {
+                anim.SetActive(true);
                 gravidadeAtingida++;
                 text.text = "Nível " + gravidadeAtingida + " Atingido".ToUpper(); ;
                 timerAtivarAsCercas = 45;
@@ -195,8 +183,18 @@ public class AI : MonoBehaviour
         if (falaAtiva)
         {
             panelAI.SetActive(false);
-            //timer = duraçãoDasFalas;
             falaAtiva = false;
+        }
+
+        if (aviso)
+        {
+            panelAI.SetActive(false);
+            aviso = false;
+        }
+
+        if(narrativaAtual == 3 && falaAtiva == false)
+        {
+            panelAI.SetActive(false);
         }
     }
 
