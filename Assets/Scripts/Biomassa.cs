@@ -50,16 +50,10 @@ public class Biomassa : MonoBehaviour
             
             RemoveMaterials(inventory);
 
-            Generators.currentEnergy += 10;
-
+           
             fumaça.SetActive(true);
 
-            if(Generators.currentEnergy > Generators.MaxCapacity)
-            {
-                Generators.currentEnergy = Generators.MaxCapacity;
-            }
-
-            UpdateInterface.instance.Update2();
+           
         }
 
     }
@@ -80,10 +74,10 @@ public class Biomassa : MonoBehaviour
     public void RemoveMaterials(ItemContainer itemContainer)
     {
 
-        for (int i = 0; i < amount; i++)
-        {
+        //for (int i = 0; i < amoun; i++)
+       // {
             Inventory.instance.Remove(item);
-        }
+       // }
     }
 
 }

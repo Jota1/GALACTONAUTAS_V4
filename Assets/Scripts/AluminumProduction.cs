@@ -17,8 +17,8 @@ public class AluminumProduction : MonoBehaviour
     private void Start()
     {
         AluminioProduzido = false;
-        Generators.currentEnergy = 20;
-        UpdateInterface.instance.Update2();
+        //Generators.currentEnergy = 20;
+       // UpdateInterface.instance.Update2();
     }
 
     public void ProduzirAluminum()
