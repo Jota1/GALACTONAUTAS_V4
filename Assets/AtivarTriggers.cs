@@ -43,6 +43,14 @@ public class AtivarTriggers : MonoBehaviour
             cercasAtivadas = true;
         }
 
+        if (ai.GetnarrativaAtual() == 4 && !ai.GetFalaAtiva())
+        {
+            barreiraProJogador[0].SetActive(false);
+            barreiraProJogador[1].SetActive(false);
+            triggers[1].SetActive(true);
+
+        }
+
         if (ai.GetnarrativaAtual() == 7 && !ai.GetFalaAtiva())
         {
             ai.SetFalaAtiva(true);
@@ -53,12 +61,7 @@ public class AtivarTriggers : MonoBehaviour
             ai.SetFalaAtiva(true);
         }
 
-        if (ai.GetnarrativaAtual() == 4 && !ai.GetFalaAtiva())
-        {
-            barreiraProJogador[0].SetActive(false);
-            barreiraProJogador[1].SetActive(false);
-            triggers[1].SetActive(true);
 
-        }
+       
     }
 }

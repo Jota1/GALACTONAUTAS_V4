@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Biomassa : MonoBehaviour
 {
@@ -10,7 +11,9 @@ public class Biomassa : MonoBehaviour
     public int amount;
     public static bool BioAlien;
     public GameObject fumaça;
-
+    public GameObject Crystal;
+    private bool CrystalAtivo;
+   
     private float timer = 60;
 
     // Start is called before the first frame update
@@ -25,6 +28,12 @@ public class Biomassa : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!CrystalAtivo && CansadaDessesEfeitos.BioNoGerador)
+        {
+            Crystal.SetActive(true);
+            CrystalAtivo = false;
+        }
+      
         if(BioAlien)
         {
             timer -= Time.deltaTime;

@@ -113,8 +113,11 @@ public class RayCastInteractable : MonoBehaviour
 
 					if (bio != null && !Biomassa.BioAlien)
 					{
-						bio.GenerateEnergy();
+					    bio.GenerateEnergy();
+	
 					}
+
+					
 
 					if (converter != null && ChangePlayer.playerBool)
 						converter.activate();
@@ -138,6 +141,11 @@ public class RayCastInteractable : MonoBehaviour
 
 					texture = crosshair;
 
+				}
+
+				if (bio != null && Biomassa.BioAlien)
+				{
+					CansadaDessesEfeitos.BioNoGerador = true;
 				}
 
 			}
