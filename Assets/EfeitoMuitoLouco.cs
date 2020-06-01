@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Security.Policy;
 using UnityEngine;
 
 public class EfeitoMuitoLouco : MonoBehaviour
@@ -18,11 +17,11 @@ public class EfeitoMuitoLouco : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if(Biomassa.BioAlien && !yes)
-        //{
-           // fade.SetActive(true);
-           // ai.SetFalaAtiva(true);
-          //  yes = true;
-       // }
+        if(Biomassa.BioAlien && !yes)
+        {
+            fade.SetActive(true);
+            ai.SetFalaAtiva(true);
+            yes = true;
+        }
     }
 }
