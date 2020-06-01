@@ -60,7 +60,7 @@ public class AI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(novafala)
+        if (novafala)
         {
             Debug.Log(narrativa[narrativaAtual]);
             anim.SetActive(false);
@@ -68,9 +68,9 @@ public class AI : MonoBehaviour
             falaAtiva = true;
             novafala = false;
             trocarfala = true;
-            
+
         }
-       
+
         if (falaAtiva)
         {
 
@@ -87,9 +87,9 @@ public class AI : MonoBehaviour
 
         else
         {
-            if( aviso)
+            if (aviso)
             {
-              
+
 
                 if (!panelAI.activeSelf)
                 {
@@ -97,11 +97,11 @@ public class AI : MonoBehaviour
                     panelAI.SetActive(true);
                     text.text = sairDoDomo;
                 }
-               
+
             }
         }
 
-        if(narrativaAtual==3 && falaAtiva == false)
+        if (narrativaAtual == 3 && falaAtiva == false)
         {
 
             if (!panelAI.activeSelf && timerAtivarAsCercas >= 40)
@@ -122,7 +122,7 @@ public class AI : MonoBehaviour
                 timerAtivarAsCercas = 45;
             }
 
-              if(gravidadeAtingida == 21)
+            if (gravidadeAtingida == 21)
             {
                 PanelGameOver.SetActive(true);
             }
@@ -131,32 +131,35 @@ public class AI : MonoBehaviour
 
 
 
-       ///*******Vida 0O Player
+        ///*******Vida 0O Player
 
-     if (domo.GetForaDoDomo())
-      {
-           life -= Time.timeScale * 0.01f;
-         lifeIndicatorSld.value = life;
-      }
+        if (!Cheats.imortal)
+        {
+                 if (domo.GetForaDoDomo())
+                {
+                    life -= Time.timeScale * 0.01f;
+                    lifeIndicatorSld.value = life;
+                }
 
-      else if (!domo.GetForaDoDomo() && life < maxLife)
-       {
-         if (life > maxLife)
-          {
-               life = maxLife;
-          }
-       
-         life += Time.timeScale * 0.01f;
-         lifeIndicatorSld.value = life;
-      }
+                else if (!domo.GetForaDoDomo() && life < maxLife)
+                {
+                    if (life > maxLife)
+                    {
+                        life = maxLife;
+                    }
 
-        if (life <= 0)
-     {
-         PanelForaDoDomo.SetActive(true);
-       }
+                    life += Time.timeScale * 0.01f;
+                    lifeIndicatorSld.value = life;
+                }
 
+                if (life <= 0)
+                {
+                    PanelForaDoDomo.SetActive(true);
+                }
+
+
+        }
     }
-
 
     public void SetFalaAtiva(bool state)
     {

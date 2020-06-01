@@ -60,15 +60,21 @@ public class ChangePlayer : MonoBehaviour
 
     public void Update()
     {
-       // Debug.Log(FuelSystem.StartFuel);
-       // if(!playerBool && FuelSystem.startFuel <= 0)
+        // Debug.Log(FuelSystem.StartFuel);
+        // if(!playerBool && FuelSystem.startFuel <= 0)
         //{
         //    ChangePlayerInteract();
-       // }
+        // }
+        if (Cheats.poderVoltarAoVeículo)
+        {
+            collider.enabled = false;
+        }
 
-        if(!collider.enabled && Input.GetKeyDown(KeyCode.V))
+        if (!collider.enabled && Input.GetKeyDown(KeyCode.V))
         {
             ChangePlayerInteract();
         }
+
+        
     }
 }

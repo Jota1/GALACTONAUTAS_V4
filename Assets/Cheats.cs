@@ -5,10 +5,12 @@ using UnityEngine;
 public class Cheats : MonoBehaviour
 {
     public GameObject LuzSuprema;
-    public GameObject carrinho;
+    public GameObject carrinhoDeControlar;
+    public GameObject carrinhoTudo;
     public GameObject jogador;
     public Transform PositionCaverna;
     public Transform PositionFimDesafio;
+    public Transform PositionInicial;
 
     public GameObject[] CercasFantasmas;
     public GameObject[] CercasInstaladas;
@@ -18,12 +20,16 @@ public class Cheats : MonoBehaviour
 
     public static bool domoEterno;
     public static bool energiaEterna;
+    public static bool imortal;
+    public static bool poderVoltarAoVeículo;
 
     // Start is called before the first frame update
     void Start()
     {
         domoEterno = false;
         energiaEterna = false;
+        imortal = false;
+        poderVoltarAoVeículo = false;
     }
 
     // Update is called once per frame
@@ -44,6 +50,10 @@ public class Cheats : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.N)) EnergiaEterna();
 
         if (Input.GetKeyDown(KeyCode.B)) AbastecerEnergia();
+
+        if (Input.GetKeyDown(KeyCode.Z)) InvencivelForaDoDomo();
+
+        if (Input.GetKeyDown(KeyCode.X)) DeVoltaAoInicio();
     }
 
     public void AtivarODomo()
@@ -63,17 +73,23 @@ public class Cheats : MonoBehaviour
 
     public void CarrinhoNaCaverna()
     {
+        poderVoltarAoVeículo = true;
+        ChangePlayer.playerBool = false;
         jogador.SetActive(false);
-        carrinho.transform.position = PositionCaverna.position;
-        carrinho.SetActive(true);
+        carrinhoDeControlar.transform.position = PositionCaverna.position;
+        carrinhoDeControlar.transform.rotation = PositionInicial.rotation;
+        carrinhoTudo.SetActive(true);
         ai.SetnarrativaAtual(9);
     }
 
     public void Desafio1Completo()
     {
+        poderVoltarAoVeículo = true;
+        ChangePlayer.playerBool = false;
         jogador.SetActive(false);
-        carrinho.transform.position = PositionFimDesafio.position;
-        carrinho.SetActive(true);
+        carrinhoDeControlar.transform.position = PositionFimDesafio.position;
+        carrinhoDeControlar.transform.rotation = PositionInicial.rotation;
+        carrinhoTudo.SetActive(true);
         ai.SetnarrativaAtual(9);
     }
 
@@ -89,7 +105,8 @@ public class Cheats : MonoBehaviour
 
     public void DesvirarCarrinho()
     {
-        carrinho.transform.rotation = new Quaternion(carrinho.transform.rotation.x, carrinho.transform.rotation.y, 0, carrinho.transform.rotation.w);
+        carrinhoDeControlar.transform.rotation = new Quaternion(carrinhoDeControlar.transform.rotation.x, carrinhoDeControlar.transform.rotation.y, 0, carrinhoDeControlar.transform.rotation.w);
+
     }
 
     public void DomoEterno()
@@ -108,5 +125,21 @@ public class Cheats : MonoBehaviour
         Generators.MaxCapacity = 100;
         Generators.currentEnergy = 100;
         UpdateInterface.instance.Update2();
+    }
+
+    public void InvencivelForaDoDomo()
+    {
+        imortal = true;
+    }
+
+    public void DeVoltaAoInicio()
+    {
+        poderVoltarAoVeículo = true;
+        ChangePlayer.playerBool = false;
+        jogador.SetActive(false);
+        carrinhoDeControlar.transform.position = PositionInicial.position;
+        carrinhoDeControlar.transform.rotation = PositionInicial.rotation;
+        carrinhoTudo.SetActive(true);
+        ai.SetnarrativaAtual(9);
     }
 }

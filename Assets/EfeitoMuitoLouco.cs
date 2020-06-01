@@ -6,6 +6,7 @@ public class EfeitoMuitoLouco : MonoBehaviour
 {
     public GameObject fade;
     public AI ai;
+    //public GameObject carrinhoOuJogador;
     private bool yes;
 
     // Start is called before the first frame update
@@ -19,7 +20,9 @@ public class EfeitoMuitoLouco : MonoBehaviour
     {
         if(Biomassa.BioAlien && !yes)
         {
+           
             fade.SetActive(true);
+            //carrinhoOuJogador.SetActive(false);
             ai.SetFalaAtiva(true);
             yes = true;
         }
