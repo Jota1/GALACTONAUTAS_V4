@@ -193,10 +193,10 @@ namespace NWH.VehiclePhysics
                 vehicleController.input.Vertical = vertical;
 
                 // Engine start/stop
-                if (TryGetButtonDown("EngineStartStop", KeyCode.E))
-                {
-                    vehicleController.engine.Toggle();
-                }
+                //if (TryGetButtonDown("EngineStartStop", KeyCode.E))
+                //{
+                   // vehicleController.engine.Toggle();
+               // }
 
                 // Handbrake
                 try
@@ -225,31 +225,31 @@ namespace NWH.VehiclePhysics
                 }
 
                 // Lights
-                if (TryGetButtonDown("LeftBlinker", KeyCode.Z))
-                {
-                    vehicleController.input.leftBlinker = !vehicleController.input.leftBlinker;
-                    if (vehicleController.input.leftBlinker) vehicleController.input.rightBlinker = false;
-                }
-                if (TryGetButtonDown("RightBlinker", KeyCode.X))
-                {
-                    vehicleController.input.rightBlinker = !vehicleController.input.rightBlinker;
-                    if (vehicleController.input.rightBlinker) vehicleController.input.leftBlinker = false;
-                }
+               // if (TryGetButtonDown("LeftBlinker", KeyCode.Z))
+               // {
+                   // vehicleController.input.leftBlinker = !vehicleController.input.leftBlinker;
+                   // if (vehicleController.input.leftBlinker) vehicleController.input.rightBlinker = false;
+              //  }
+               // if (TryGetButtonDown("RightBlinker", KeyCode.X))
+                //{
+                  //  vehicleController.input.rightBlinker = !vehicleController.input.rightBlinker;
+                  //  if (vehicleController.input.rightBlinker) vehicleController.input.leftBlinker = false;
+               // }
                 if (TryGetButtonDown("Lights", KeyCode.L)) vehicleController.input.lowBeamLights = !vehicleController.input.lowBeamLights;
                 if (TryGetButtonDown("FullBeamLights", KeyCode.K)) vehicleController.input.fullBeamLights = !vehicleController.input.fullBeamLights;
-                if (TryGetButtonDown("HazardLights", KeyCode.J))
-                {
-                    vehicleController.input.hazardLights = !vehicleController.input.hazardLights;
-                    vehicleController.input.leftBlinker = false;
-                    vehicleController.input.rightBlinker = false;
-                }
+               // if (TryGetButtonDown("HazardLights", KeyCode.J))
+               // {
+                   // vehicleController.input.hazardLights = !vehicleController.input.hazardLights;
+                   // vehicleController.input.leftBlinker = false;
+                   // vehicleController.input.rightBlinker = false;
+                //}
 
                 // Horn
                 vehicleController.input.horn = TryGetButton("Horn", KeyCode.H);
 
                 // Raise trailer flag if trailer attach detach button pressed.
-                if (TryGetButtonDown("TrailerAttachDetach", KeyCode.T))
-                    vehicleController.input.trailerAttachDetach = true;
+              //  if (TryGetButtonDown("TrailerAttachDetach", KeyCode.T))
+                   // vehicleController.input.trailerAttachDetach = true;
 
                 // Manual flip over
                 if (vehicleController.flipOver.manual)
