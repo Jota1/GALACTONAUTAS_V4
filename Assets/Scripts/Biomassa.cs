@@ -9,12 +9,14 @@ public class Biomassa : MonoBehaviour
     public Item item;
     public int amount;
     public static bool BioAlien;
+    public GameObject fumaça;
 
     private float timer = 60;
 
     // Start is called before the first frame update
     void Start()
     {
+        BioAlien = false;
         Generators.MaxCapacity += 10;
         UpdateInterface.instance.Update2();
         inventory = GameObject.Find("GameManager").GetComponent<Inventory>();
@@ -49,6 +51,8 @@ public class Biomassa : MonoBehaviour
             RemoveMaterials(inventory);
 
             Generators.currentEnergy += 10;
+
+            fumaça.SetActive(true);
 
             if(Generators.currentEnergy > Generators.MaxCapacity)
             {

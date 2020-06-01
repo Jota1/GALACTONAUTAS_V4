@@ -7,6 +7,7 @@ public class AluminumProduction : MonoBehaviour
     public Animator anim;
     public GameObject aluminum;
     public Transform positionAluminum;
+    public GameObject bauxite;
 
     public CraftingRecipe craftingRecipe;
     public Inventory inventory;
@@ -16,8 +17,8 @@ public class AluminumProduction : MonoBehaviour
     private void Start()
     {
         AluminioProduzido = false;
-        //Generators.currentEnergy = 20;
-        //UpdateInterface.instance.Update2();
+        Generators.currentEnergy = 20;
+        UpdateInterface.instance.Update2();
     }
 
     public void ProduzirAluminum()
@@ -27,7 +28,8 @@ public class AluminumProduction : MonoBehaviour
             Instantiate(aluminum, positionAluminum.position, Quaternion.identity);
             AluminioProduzido = true;
             anim.SetTrigger("Refinando");
-            //bauxite.SetActive(true);
+            bauxite.SetActive(false);
+            bauxite.SetActive(true);
         }
        
     }
