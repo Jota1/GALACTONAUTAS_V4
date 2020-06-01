@@ -10,12 +10,12 @@ public class AtivarTriggers : MonoBehaviour
     public GameObject[] barreiraProJogador;
     public GameObject[] cercasFantasmas;
 
-    private bool cercasAtivadas;
+    public static bool cercasAtivadas;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        cercasAtivadas = false;
     }
 
     // Update is called once per frame

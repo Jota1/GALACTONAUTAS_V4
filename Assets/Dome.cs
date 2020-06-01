@@ -37,20 +37,28 @@ public class Dome : MonoBehaviour
     void Update()
     {
 
-       
-       segundos -= Time.deltaTime;
-
-         if (segundos <= 0 && energiaDoDomo > 0)
+        if (!Cheats.domoEterno)
         {
-            energiaDoDomo -= 1;
-            energiaDoDomoText.text = energiaDoDomo + "%";
-            segundos = time * 60;
+            segundos -= Time.deltaTime;
+
+            if (segundos <= 0 && energiaDoDomo > 0)
+            {
+                energiaDoDomo -= 1;
+                energiaDoDomoText.text = energiaDoDomo + "%";
+                segundos = time * 60;
+            }
+
+            if (energiaDoDomo == 0)
+            {
+                ForaDoDomo = true;
+                gameObject.SetActive(false);
+            }
         }
 
-        if(energiaDoDomo == 0)
+        else
         {
-            ForaDoDomo = true;
-            gameObject.SetActive(false);
+            energiaDoDomo = 100;
+            energiaDoDomoText.text = energiaDoDomo + "%";
         }
 
     }

@@ -131,29 +131,29 @@ public class AI : MonoBehaviour
 
 
 
-        ///*******Vida 0O Player
+       ///*******Vida 0O Player
 
-    //    if (domo.GetForaDoDomo())
-      //  {
-      //      life -= Time.timeScale * 0.1f;
-      //      lifeIndicatorSld.value = life;
-     //   }
-//
-     //   else if (!domo.GetForaDoDomo() && life < maxLife)
-      //  {
-        //    if (life > maxLife)
-        //    {
-        //        life = maxLife;
-        //    }
-        ///
-         //   life += Time.timeScale * 0.1f;
-       //     lifeIndicatorSld.value = life;
-      //  }
+     if (domo.GetForaDoDomo())
+      {
+           life -= Time.timeScale * 0.01f;
+         lifeIndicatorSld.value = life;
+      }
 
-       // if (life <= 0)
-     //   {
-       //     PanelForaDoDomo.SetActive(true);
-      //  }
+      else if (!domo.GetForaDoDomo() && life < maxLife)
+       {
+         if (life > maxLife)
+          {
+               life = maxLife;
+          }
+       
+         life += Time.timeScale * 0.01f;
+         lifeIndicatorSld.value = life;
+      }
+
+        if (life <= 0)
+     {
+         PanelForaDoDomo.SetActive(true);
+       }
 
     }
 
@@ -176,6 +176,11 @@ public class AI : MonoBehaviour
     public int GetnarrativaAtual()
     {
         return narrativaAtual;
+    }
+
+    public void SetnarrativaAtual(int narrativa)
+    {
+        narrativaAtual = narrativa;
     }
 
     public void CancelarFala()
