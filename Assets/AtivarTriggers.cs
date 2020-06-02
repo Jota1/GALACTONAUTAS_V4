@@ -51,6 +51,11 @@ public class AtivarTriggers : MonoBehaviour
 
         }
 
+        if (ai.GetnarrativaAtual() == 5 && !ai.GetFalaAtiva())
+        {
+            ai.SetFalaAtiva(true);
+        }
+
         if (ai.GetnarrativaAtual() == 7 && !ai.GetFalaAtiva())
         {
             ai.SetFalaAtiva(true);
