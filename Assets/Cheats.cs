@@ -35,23 +35,23 @@ public class Cheats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha5)) AtivarODomo();
+        //if (Input.GetKeyDown(KeyCode.Alpha5)) AtivarODomo();
 
         if (Input.GetKeyDown(KeyCode.Alpha6)) CarrinhoNaCaverna();
 
         if (Input.GetKeyDown(KeyCode.Alpha7)) Desafio1Completo();
 
-        if (Input.GetKeyDown(KeyCode.Alpha8)) Luz();
+        //if (Input.GetKeyDown(KeyCode.Alpha8)) Luz();
 
         if (Input.GetKeyDown(KeyCode.Alpha9)) DesvirarCarrinho();
 
-        if (Input.GetKeyDown(KeyCode.Alpha0)) DomoEterno();
+        //if (Input.GetKeyDown(KeyCode.Alpha0)) DomoEterno();
 
-        if (Input.GetKeyDown(KeyCode.N)) EnergiaEterna();
+        //if (Input.GetKeyDown(KeyCode.N)) EnergiaEterna();
 
-        if (Input.GetKeyDown(KeyCode.B)) AbastecerEnergia();
+        //if (Input.GetKeyDown(KeyCode.B)) AbastecerEnergia();
 
-        if (Input.GetKeyDown(KeyCode.Z)) InvencivelForaDoDomo();
+        //if (Input.GetKeyDown(KeyCode.Z)) InvencivelForaDoDomo();
 
         if (Input.GetKeyDown(KeyCode.X)) DeVoltaAoInicio();
     }

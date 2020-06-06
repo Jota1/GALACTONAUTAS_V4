@@ -47,6 +47,7 @@ public class AtivarTriggers : MonoBehaviour
         {
             barreiraProJogador[0].SetActive(false);
             barreiraProJogador[1].SetActive(false);
+            barreiraProJogador[2].SetActive(false);
             triggers[1].SetActive(true);
 
         }
