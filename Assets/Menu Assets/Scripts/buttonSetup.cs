@@ -11,6 +11,12 @@ public class buttonSetup : MonoBehaviour
     public GameObject instru;
     public GameObject[] buttons;
 
+    public void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
     public void startGame()
     {
         //Destroy(weather1);

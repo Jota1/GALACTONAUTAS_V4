@@ -9,6 +9,7 @@ public class UI_Survival_Manager : MonoBehaviour
     public GameObject snc;
     public GameObject bauxita;
     public GameObject bacterias;
+    public GameObject geradorbiomassa;
 
     [Header("Modelos 3D - Planeta")]
     public GameObject planta1_3d;
@@ -22,10 +23,12 @@ public class UI_Survival_Manager : MonoBehaviour
     public GameObject planta9_3d;
     public GameObject planta10_3d;
 
+
     [Header("Infos - Base")]
     public GameObject snc_info;
     public GameObject bauxita_info;
     public GameObject bacteria_info;
+    public GameObject geradorbiomassa_info;
 
     [Header("Infos - Planeta")]
     public GameObject planta1_info;
@@ -437,8 +440,8 @@ public class UI_Survival_Manager : MonoBehaviour
         if (itens_base <= 1)
             itens_base = 1;
 
-        if (itens_base >= 3)
-            itens_base = 3;
+        if (itens_base >= 4)
+            itens_base = 4;
 
         if (itens_base == 1)
         {
@@ -448,6 +451,8 @@ public class UI_Survival_Manager : MonoBehaviour
             bauxita_info.SetActive(false);
             bacterias.SetActive(false);
             bacteria_info.SetActive(false);
+            geradorbiomassa.SetActive(false);
+            geradorbiomassa_info.SetActive(false);
         }
 
         if (itens_base == 2)
@@ -458,6 +463,8 @@ public class UI_Survival_Manager : MonoBehaviour
             bauxita_info.SetActive(true);
             bacterias.SetActive(false);
             bacteria_info.SetActive(false);
+            geradorbiomassa.SetActive(false);
+            geradorbiomassa_info.SetActive(false);
         }
 
         if (itens_base == 3)
@@ -468,6 +475,20 @@ public class UI_Survival_Manager : MonoBehaviour
             bauxita_info.SetActive(false);
             bacterias.SetActive(true);
             bacteria_info.SetActive(true);
+            geradorbiomassa.SetActive(false);
+            geradorbiomassa_info.SetActive(false);
+        }
+
+        if (itens_base == 4)
+        {
+            snc.SetActive(false);
+            snc_info.SetActive(false);
+            bauxita.SetActive(false);
+            bauxita_info.SetActive(false);
+            bacterias.SetActive(false);
+            bacteria_info.SetActive(false);
+            geradorbiomassa.SetActive(true);
+            geradorbiomassa_info.SetActive(true);
         }
     }
 

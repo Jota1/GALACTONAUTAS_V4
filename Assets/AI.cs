@@ -17,6 +17,9 @@ public class AI : MonoBehaviour
     [TextArea(3, 10)]
     public string sairDoDomo;
 
+    [TextArea(3, 10)]
+    public string Avisotenda;
+
     [TextArea(3,10)]
     public string[] narrativa;
 
@@ -41,6 +44,7 @@ public class AI : MonoBehaviour
     private float timerAtivarAsCercas;
     private int gravidadeAtingida;
     private bool aviso;
+    private bool naoSaiDaTenda;
 
     // Start is called before the first frame update
     void Start()
@@ -95,11 +99,32 @@ public class AI : MonoBehaviour
                 {
                     anim.SetActive(true);
                     panelAI.SetActive(true);
-                    text.text = sairDoDomo;
+                    text.text = sairDoDomo.ToUpper();
                 }
 
             }
+
+            if (naoSaiDaTenda)
+            {
+                if (!panelAI.activeSelf)
+                {
+                    anim.SetActive(true);
+                    panelAI.SetActive(true);
+                    text.text = Avisotenda.ToUpper();
+                    naoSaiDaTenda = false;
+                }
+
+                else
+                {
+                    anim.SetActive(true);
+                    text.text = Avisotenda.ToUpper();
+                    naoSaiDaTenda = false;
+                }
+            }
+
         }
+
+
 
         if (narrativaAtual == 3 && falaAtiva == false)
         {
@@ -204,6 +229,11 @@ public class AI : MonoBehaviour
         {
             panelAI.SetActive(false);
         }
+    }
+
+    public void NaoSaiDaTenda()
+    {
+        naoSaiDaTenda = true;
     }
 
 }
