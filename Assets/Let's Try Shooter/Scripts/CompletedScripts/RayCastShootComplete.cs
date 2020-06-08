@@ -14,6 +14,7 @@ public class RayCastShootComplete : MonoBehaviour {
 	private LineRenderer laserLine;										
 	private float nextFire;
 	private bool fire;
+	public LayerMask layer;
 
 
 	void Start () 
@@ -64,7 +65,7 @@ public class RayCastShootComplete : MonoBehaviour {
 			
 
 
-			if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, weaponRange))
+			if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, weaponRange, layer))
 			{
 				laserLine.SetPosition(1, hit.point);
 
