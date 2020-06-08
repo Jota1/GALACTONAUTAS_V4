@@ -6,41 +6,18 @@ using UnityEngine.UI;
 public class UI_Survival_Manager : MonoBehaviour
 {
     [Header("Modelos 3D - Base")]
-    public GameObject snc;
-    public GameObject bauxita;
-    public GameObject bacterias;
-    public GameObject geradorbiomassa;
+    public GameObject[] modelosBase;
+    
 
     [Header("Modelos 3D - Planeta")]
-    public GameObject planta1_3d;
-    public GameObject planta2_3d;
-    public GameObject planta3_3d;
-    public GameObject planta4_3d;
-    public GameObject planta5_3d;
-    public GameObject planta6_3d;
-    public GameObject planta7_3d;
-    public GameObject planta8_3d;
-    public GameObject planta9_3d;
-    public GameObject planta10_3d;
+    public GameObject[] modelosPlaneta;
 
 
     [Header("Infos - Base")]
-    public GameObject snc_info;
-    public GameObject bauxita_info;
-    public GameObject bacteria_info;
-    public GameObject geradorbiomassa_info;
+    public GameObject[] infosBase;
 
     [Header("Infos - Planeta")]
-    public GameObject planta1_info;
-    public GameObject planta2_info;
-    public GameObject planta3_info;
-    public GameObject planta4_info;
-    public GameObject planta5_info;
-    public GameObject planta6_info;
-    public GameObject planta7_info;
-    public GameObject planta8_info;
-    public GameObject planta9_info;
-    public GameObject planta10_info;
+    public GameObject[]infosPlaneta;
 
     //Estados do menu
     private string PLANETA = "Planeta";
@@ -77,20 +54,20 @@ public class UI_Survival_Manager : MonoBehaviour
 
     void Start()
     {   //estado = BASE;
+        itens_base = 1;
+        itens_planeta = 1;
         botao_base.Select();
         botao_base_selected = true;
 
-        snc.SetActive(true);
-        //bacterias.SetActive(false);
-        //bauxita.SetActive(false);
-
+        modelosBase[0].SetActive(true);
+    
     }
 
   
     void Update()
     {
-        Botoes_Base();
-        Botoes_Planeta();
+        //Botoes_Base();
+        //Botoes_Planeta();
         Buttons_UI();
 
         Debug.Log(botao_veiculo_selected);
@@ -104,391 +81,32 @@ public class UI_Survival_Manager : MonoBehaviour
         if (itens_planeta >= 10)
             itens_planeta = 10;
 
-        if (itens_planeta == 1)
-        {
-            planta1_info.SetActive(true);
-            planta1_3d.SetActive(true);
-
-            planta2_info.SetActive(false);
-            planta2_3d.SetActive(false);
-
-            planta3_info.SetActive(false);
-            planta3_3d.SetActive(false);
-
-            planta4_info.SetActive(false);
-            planta4_3d.SetActive(false);
-
-            planta5_info.SetActive(false);
-            planta5_3d.SetActive(false);
-
-            planta6_info.SetActive(false);
-            planta6_3d.SetActive(false);
-
-            planta7_info.SetActive(false);
-            planta7_3d.SetActive(false);
-
-            planta8_info.SetActive(false);
-            planta8_3d.SetActive(false);
-
-            planta9_info.SetActive(false);
-            planta9_3d.SetActive(false);
-
-            planta10_info.SetActive(false);
-            planta10_3d.SetActive(false);
-        }
-
-        if (itens_planeta == 2)
-        {
-            planta1_info.SetActive(false);
-            planta1_3d.SetActive(false);
-
-            planta2_info.SetActive(true);
-            planta2_3d.SetActive(true);
-
-            planta3_info.SetActive(false);
-            planta3_3d.SetActive(false);
-
-            planta4_info.SetActive(false);
-            planta4_3d.SetActive(false);
-
-            planta5_info.SetActive(false);
-            planta5_3d.SetActive(false);
-
-            planta6_info.SetActive(false);
-            planta6_3d.SetActive(false);
-
-            planta7_info.SetActive(false);
-            planta7_3d.SetActive(false);
-
-            planta8_info.SetActive(false);
-            planta8_3d.SetActive(false);
-
-            planta9_info.SetActive(false);
-            planta9_3d.SetActive(false);
-
-            planta10_info.SetActive(false);
-            planta10_3d.SetActive(false);
-        }
-
-        if (itens_planeta == 3)
-        {
-            planta1_info.SetActive(false);
-            planta1_3d.SetActive(false);
-
-            planta2_info.SetActive(false);
-            planta2_3d.SetActive(false);
-
-            planta3_info.SetActive(true);
-            planta3_3d.SetActive(true);
-
-            planta4_info.SetActive(false);
-            planta4_3d.SetActive(false);
-
-            planta5_info.SetActive(false);
-            planta5_3d.SetActive(false);
-
-            planta6_info.SetActive(false);
-            planta6_3d.SetActive(false);
-
-            planta7_info.SetActive(false);
-            planta7_3d.SetActive(false);
-
-            planta8_info.SetActive(false);
-            planta8_3d.SetActive(false);
-
-            planta9_info.SetActive(false);
-            planta9_3d.SetActive(false);
-
-            planta10_info.SetActive(false);
-            planta10_3d.SetActive(false);
-        }
-
-        if (itens_planeta == 4)
-        {
-            planta1_info.SetActive(false);
-            planta1_3d.SetActive(false);
-
-            planta2_info.SetActive(false);
-            planta2_3d.SetActive(false);
-
-            planta3_info.SetActive(false);
-            planta3_3d.SetActive(false);
-
-            planta4_info.SetActive(true);
-            planta4_3d.SetActive(true);
-
-            planta5_info.SetActive(false);
-            planta5_3d.SetActive(false);
-
-            planta6_info.SetActive(false);
-            planta6_3d.SetActive(false);
-
-            planta7_info.SetActive(false);
-            planta7_3d.SetActive(false);
-
-            planta8_info.SetActive(false);
-            planta8_3d.SetActive(false);
-
-            planta9_info.SetActive(false);
-            planta9_3d.SetActive(false);
-
-            planta10_info.SetActive(false);
-            planta10_3d.SetActive(false);
-        }
-
-        if (itens_planeta == 5)
-        {
-            planta1_info.SetActive(false);
-            planta1_3d.SetActive(false);
-
-            planta2_info.SetActive(false);
-            planta2_3d.SetActive(false);
-
-            planta3_info.SetActive(false);
-            planta3_3d.SetActive(false);
-
-            planta4_info.SetActive(false);
-            planta4_3d.SetActive(false);
-
-            planta5_info.SetActive(true);
-            planta5_3d.SetActive(true);
-
-            planta6_info.SetActive(false);
-            planta6_3d.SetActive(false);
-
-            planta7_info.SetActive(false);
-            planta7_3d.SetActive(false);
-
-            planta8_info.SetActive(false);
-            planta8_3d.SetActive(false);
-
-            planta9_info.SetActive(false);
-            planta9_3d.SetActive(false);
-
-            planta10_info.SetActive(false);
-            planta10_3d.SetActive(false);
-        }
-
-        if (itens_planeta == 6)
-        {
-            planta1_info.SetActive(false);
-            planta1_3d.SetActive(false);
-
-            planta2_info.SetActive(false);
-            planta2_3d.SetActive(false);
-
-            planta3_info.SetActive(false);
-            planta3_3d.SetActive(false);
-
-            planta4_info.SetActive(false);
-            planta4_3d.SetActive(false);
-
-            planta5_info.SetActive(false);
-            planta5_3d.SetActive(false);
-
-            planta6_info.SetActive(true);
-            planta6_3d.SetActive(true);
-
-            planta7_info.SetActive(false);
-            planta7_3d.SetActive(false);
-
-            planta8_info.SetActive(false);
-            planta8_3d.SetActive(false);
-
-            planta9_info.SetActive(false);
-            planta9_3d.SetActive(false);
-
-            planta10_info.SetActive(false);
-            planta10_3d.SetActive(false);
-        }
-
-        if (itens_planeta == 7)
-        {
-            planta1_info.SetActive(false);
-            planta1_3d.SetActive(false);
-
-            planta2_info.SetActive(false);
-            planta2_3d.SetActive(false);
-
-            planta3_info.SetActive(false);
-            planta3_3d.SetActive(false);
-
-            planta4_info.SetActive(false);
-            planta4_3d.SetActive(false);
-
-            planta5_info.SetActive(false);
-            planta5_3d.SetActive(false);
-
-            planta6_info.SetActive(false);
-            planta6_3d.SetActive(false);
-
-            planta7_info.SetActive(true);
-            planta7_3d.SetActive(true);
-
-            planta8_info.SetActive(false);
-            planta8_3d.SetActive(false);
-
-            planta9_info.SetActive(false);
-            planta9_3d.SetActive(false);
-
-            planta10_info.SetActive(false);
-            planta10_3d.SetActive(false);
-        }
-
-        if (itens_planeta == 8)
-        {
-            planta1_info.SetActive(false);
-            planta1_3d.SetActive(false);
-
-            planta2_info.SetActive(false);
-            planta2_3d.SetActive(false);
-
-            planta3_info.SetActive(false);
-            planta3_3d.SetActive(false);
-
-            planta4_info.SetActive(false);
-            planta4_3d.SetActive(false);
-
-            planta5_info.SetActive(false);
-            planta5_3d.SetActive(false);
-
-            planta6_info.SetActive(false);
-            planta6_3d.SetActive(false);
-
-            planta7_info.SetActive(false);
-            planta7_3d.SetActive(false);
-
-            planta8_info.SetActive(true);
-            planta8_3d.SetActive(true);
-
-            planta9_info.SetActive(false);
-            planta9_3d.SetActive(false);
-
-            planta10_info.SetActive(false);
-            planta10_3d.SetActive(false);
-        }
-
-        if (itens_planeta == 9)
-        {
-            planta1_info.SetActive(false);
-            planta1_3d.SetActive(false);
-
-            planta2_info.SetActive(false);
-            planta2_3d.SetActive(false);
-
-            planta3_info.SetActive(false);
-            planta3_3d.SetActive(false);
-
-            planta4_info.SetActive(false);
-            planta4_3d.SetActive(false);
-
-            planta5_info.SetActive(false);
-            planta5_3d.SetActive(false);
-
-            planta6_info.SetActive(false);
-            planta6_3d.SetActive(false);
-
-            planta7_info.SetActive(false);
-            planta7_3d.SetActive(false);
-
-            planta8_info.SetActive(false);
-            planta8_3d.SetActive(false);
-
-            planta9_info.SetActive(true);
-            planta9_3d.SetActive(true);
-
-            planta10_info.SetActive(false);
-            planta10_3d.SetActive(false);
-        }
-
-        if (itens_planeta == 10)
-        {
-            planta1_info.SetActive(false);
-            planta1_3d.SetActive(false);
-
-            planta2_info.SetActive(false);
-            planta2_3d.SetActive(false);
-
-            planta3_info.SetActive(false);
-            planta3_3d.SetActive(false);
-
-            planta4_info.SetActive(false);
-            planta4_3d.SetActive(false);
-
-            planta5_info.SetActive(false);
-            planta5_3d.SetActive(false);
-
-            planta6_info.SetActive(false);
-            planta6_3d.SetActive(false);
-
-            planta7_info.SetActive(false);
-            planta7_3d.SetActive(false);
-
-            planta8_info.SetActive(false);
-            planta8_3d.SetActive(false);
-
-            planta9_info.SetActive(false);
-            planta9_3d.SetActive(false);
-
-            planta10_info.SetActive(true);
-            planta10_3d.SetActive(true);
-        }
     }
 
-    public void Botoes_Base ()
+    public void Botoes_Base()
     {
-        if (itens_base <= 1)
+        Debug.Log(itens_base);
+        Debug.Log(modelosBase.Length);
+
+        if (itens_base < 1)
             itens_base = 1;
 
-        if (itens_base >= 4)
-            itens_base = 4;
+        if (itens_base > modelosBase.Length)
+            itens_base = modelosBase.Length;
 
-        if (itens_base == 1)
+        for (int i = 0; i < modelosBase.Length-1; i++)
         {
-            snc.SetActive(true);
-            snc_info.SetActive(true);
-            bauxita.SetActive(false);
-            bauxita_info.SetActive(false);
-            bacterias.SetActive(false);
-            bacteria_info.SetActive(false);
-            geradorbiomassa.SetActive(false);
-            geradorbiomassa_info.SetActive(false);
-        }
+            if (i == itens_base-1)
+            {
+                modelosBase[i].SetActive(true);
+                infosBase[i].SetActive(true);
+            }
 
-        if (itens_base == 2)
-        {
-            snc.SetActive(false);
-            snc_info.SetActive(false);
-            bauxita.SetActive(true);
-            bauxita_info.SetActive(true);
-            bacterias.SetActive(false);
-            bacteria_info.SetActive(false);
-            geradorbiomassa.SetActive(false);
-            geradorbiomassa_info.SetActive(false);
-        }
-
-        if (itens_base == 3)
-        {
-            snc.SetActive(false);
-            snc_info.SetActive(false);
-            bauxita.SetActive(false);
-            bauxita_info.SetActive(false);
-            bacterias.SetActive(true);
-            bacteria_info.SetActive(true);
-            geradorbiomassa.SetActive(false);
-            geradorbiomassa_info.SetActive(false);
-        }
-
-        if (itens_base == 4)
-        {
-            snc.SetActive(false);
-            snc_info.SetActive(false);
-            bauxita.SetActive(false);
-            bauxita_info.SetActive(false);
-            bacterias.SetActive(false);
-            bacteria_info.SetActive(false);
-            geradorbiomassa.SetActive(true);
-            geradorbiomassa_info.SetActive(true);
+            else
+            {
+                modelosBase[i].SetActive(false);
+                infosBase[i].SetActive(false);
+            }
         }
     }
 
@@ -522,11 +140,13 @@ public class UI_Survival_Manager : MonoBehaviour
     public void FWD_Base ()
     {
         itens_base += 1;
+        Botoes_Base();
     }
 
     public void BWD_Base()
     {
         itens_base -= 1;
+        Botoes_Base();
     }
     //botoes de fwd e bckwds planeta
     public void FWD_Planeta()
