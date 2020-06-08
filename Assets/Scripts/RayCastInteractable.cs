@@ -137,7 +137,7 @@ public class RayCastInteractable : MonoBehaviour
 						}
 					}
 
-					if(domoRecarga != null)
+					if(domoRecarga != null && Time.timeScale != 0) 
 						domoRecarga.AtivarUI();
 
 					texture = crosshair;

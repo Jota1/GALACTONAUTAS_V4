@@ -16,7 +16,7 @@ public class InterfaceDeSobrevivência : MonoBehaviour
             Cursor.visible = true;
             UpdateInterface.CursorLock = false;
 
-            //Time.timeScale = 0;
+            Time.timeScale = 0;
 
             UI.SetActive(true);
 

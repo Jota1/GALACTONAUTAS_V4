@@ -7,11 +7,9 @@ public class UI_Survival_Manager : MonoBehaviour
 {
     [Header("Modelos 3D - Base")]
     public GameObject[] modelosBase;
-    
 
     [Header("Modelos 3D - Planeta")]
     public GameObject[] modelosPlaneta;
-
 
     [Header("Infos - Base")]
     public GameObject[] infosBase;
@@ -73,28 +71,39 @@ public class UI_Survival_Manager : MonoBehaviour
         Debug.Log(botao_veiculo_selected);
     }
 
-    public void Botoes_Planeta ()
+    public void Botoes_Planeta()
     {
-        if (itens_planeta <= 1)
+        if (itens_planeta < 1)
             itens_planeta = 1;
 
-        if (itens_planeta >= 10)
-            itens_planeta = 10;
+        if (itens_planeta > modelosPlaneta.Length)
+            itens_planeta = modelosPlaneta.Length;
 
+        for (int i = 0; i < modelosPlaneta.Length; i++)
+        {
+            if (i == itens_planeta - 1)
+            {
+                modelosPlaneta[i].SetActive(true);
+                infosPlaneta[i].SetActive(true);
+            }
+
+            else
+            {
+                modelosPlaneta[i].SetActive(false);
+                infosPlaneta[i].SetActive(false);
+            }
+        }
     }
 
     public void Botoes_Base()
     {
-        Debug.Log(itens_base);
-        Debug.Log(modelosBase.Length);
-
         if (itens_base < 1)
             itens_base = 1;
 
         if (itens_base > modelosBase.Length)
             itens_base = modelosBase.Length;
 
-        for (int i = 0; i < modelosBase.Length-1; i++)
+        for (int i = 0; i < modelosBase.Length; i++)
         {
             if (i == itens_base-1)
             {
@@ -152,11 +161,13 @@ public class UI_Survival_Manager : MonoBehaviour
     public void FWD_Planeta()
     {
         itens_planeta += 1;
+        Botoes_Planeta();
     }
 
     public void BWD_Planeta()
     {
         itens_planeta -= 1;
+        Botoes_Planeta();
     }
     //botoes Gerais --
     public void Planeta_Selected ()
