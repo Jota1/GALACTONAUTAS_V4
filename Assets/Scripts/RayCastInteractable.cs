@@ -12,6 +12,7 @@ public class RayCastInteractable : MonoBehaviour
 	public Texture2D crosshairBact;
 	public Texture2D crosshairHand;
 	public Texture2D crosshair;
+	public LayerMask layer;
 
 	private Texture2D texture;
 
@@ -31,7 +32,7 @@ public class RayCastInteractable : MonoBehaviour
 		RaycastHit hit;
 
 
-		if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, weaponRange))
+		if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, weaponRange, layer))
 		{
 
 			PlasticCollect collect = hit.collider.GetComponent<PlasticCollect>();
