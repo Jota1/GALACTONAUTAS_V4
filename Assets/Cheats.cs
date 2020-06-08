@@ -53,7 +53,7 @@ public class Cheats : MonoBehaviour
 
         //if (Input.GetKeyDown(KeyCode.Z)) InvencivelForaDoDomo();
 
-        if (Input.GetKeyDown(KeyCode.X)) DeVoltaAoInicio();
+        //if (Input.GetKeyDown(KeyCode.X)) DeVoltaAoInicio();
     }
 
     public void AtivarODomo()
