@@ -1,7 +1,8 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class Biomassa : MonoBehaviour
 {
@@ -43,6 +44,7 @@ public class Biomassa : MonoBehaviour
 
                 timer = 60;
                 Generators.currentEnergy += 5;
+              
                 if(Generators.currentEnergy > Generators.MaxCapacity)
                 {
                     Generators.currentEnergy = Generators.MaxCapacity;
@@ -56,15 +58,27 @@ public class Biomassa : MonoBehaviour
     {
         if (HasMaterials(inventory) && Generators.currentEnergy < Generators.MaxCapacity)
         {
-            
+
             RemoveMaterials(inventory);
 
-           
+            Generators.currentEnergy += 5;
+            TextTime.feedbackString = "- Estrume";
+            TextTime.textAtivado = true;
             fumaça.SetActive(true);
+            UpdateInterface.instance.Update2();
 
-           
         }
 
+    }
+
+    public bool HasAll()
+    {
+        if (HasMaterials(inventory) && Generators.currentEnergy < Generators.MaxCapacity)
+        {
+            return true;
+        }
+
+        else return false;
     }
 
     public bool HasMaterials(ItemContainer itemContainer)

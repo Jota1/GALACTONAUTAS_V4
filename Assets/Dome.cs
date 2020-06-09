@@ -27,7 +27,6 @@ public class Dome : MonoBehaviour
       
         energiaDoDomo = 15;
         energiaDoDomoText.text = energiaDoDomo + "%";
-       
         time = 1;
         segundos = time * 60;
        
@@ -90,6 +89,7 @@ public class Dome : MonoBehaviour
     {
         return ForaDoDomo;
     }
+
 
     public void SetEnergiaDoDomo()
     {

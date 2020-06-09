@@ -46,9 +46,12 @@ public class AI : MonoBehaviour
     private bool aviso;
     private bool naoSaiDaTenda;
 
+    private bool emAvisos;
+    private bool danoInicial;
     // Start is called before the first frame update
     void Start()
     {
+        danoInicial = true;
         narrativaAtual = 0;
        // timer = duraçãoDasFalas;
         timerAtivarAsCercas = 45;
@@ -94,12 +97,21 @@ public class AI : MonoBehaviour
             if (aviso)
             {
 
-
                 if (!panelAI.activeSelf)
                 {
                     anim.SetActive(true);
                     panelAI.SetActive(true);
                     text.text = sairDoDomo.ToUpper();
+                    aviso = false;
+                    emAvisos = true;
+                }
+
+                else
+                {
+                    anim.SetActive(true);
+                    text.text = sairDoDomo.ToUpper();
+                    aviso = false;
+                    emAvisos = true;
                 }
 
             }
@@ -112,6 +124,7 @@ public class AI : MonoBehaviour
                     panelAI.SetActive(true);
                     text.text = Avisotenda.ToUpper();
                     naoSaiDaTenda = false;
+                    emAvisos = true;
                 }
 
                 else
@@ -119,6 +132,7 @@ public class AI : MonoBehaviour
                     anim.SetActive(true);
                     text.text = Avisotenda.ToUpper();
                     naoSaiDaTenda = false;
+                    emAvisos = true;
                 }
             }
 
@@ -160,7 +174,7 @@ public class AI : MonoBehaviour
 
         if (!Cheats.imortal)
         {
-                 if (domo.GetForaDoDomo())
+                 if (domo.GetForaDoDomo() || danoInicial)
                 {
                     life -= Time.timeScale * 0.01f;
                     lifeIndicatorSld.value = life;
@@ -196,6 +210,11 @@ public class AI : MonoBehaviour
         return falaAtiva;
     }
 
+    public void SetDanoInicial(bool inicio)
+    {
+        danoInicial = inicio;
+    }
+
     public void Avisinho()
     {
         aviso = true;
@@ -219,16 +238,18 @@ public class AI : MonoBehaviour
             falaAtiva = false;
         }
 
-        if (aviso)
-        {
+        
+        else if(emAvisos)
+        { 
             panelAI.SetActive(false);
-            aviso = false;
+            emAvisos = false;
         }
 
-        if(narrativaAtual == 3 && falaAtiva == false)
+        if (narrativaAtual == 3 && falaAtiva == false)
         {
             panelAI.SetActive(false);
         }
+
     }
 
     public void NaoSaiDaTenda()

@@ -20,8 +20,6 @@ public class DesativarCigarro : MonoBehaviour
         {
             timer = 5;
 
-            Generators.currentEnergy += 10;
-
            
 
             if (Generators.currentEnergy > Generators.MaxCapacity)
@@ -29,7 +27,7 @@ public class DesativarCigarro : MonoBehaviour
                 Generators.currentEnergy = Generators.MaxCapacity;
             }
 
-            UpdateInterface.instance.Update2();
+         
 
             gameObject.SetActive(false);
 

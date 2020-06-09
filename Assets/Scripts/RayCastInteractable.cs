@@ -69,7 +69,7 @@ public class RayCastInteractable : MonoBehaviour
 					}
 				}
 
-				else if ( bio != null && !Biomassa.BioAlien)
+				else if ( bio != null && !Biomassa.BioAlien && bio.HasAll())
 				{
 					texture = crosshairE;
 				}

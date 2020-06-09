@@ -32,6 +32,7 @@ public class AtivarTriggers : MonoBehaviour
 
         if(ai.GetnarrativaAtual() == 3 && !cercasAtivadas)
         {
+            ai.SetDanoInicial(false);
             barreiraProJogador[0].SetActive(true);
             barreiraProJogador[1].SetActive(true);
 
