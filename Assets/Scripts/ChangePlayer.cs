@@ -70,7 +70,7 @@ public class ChangePlayer : MonoBehaviour
             collider.enabled = false;
         }
 
-        if (!collider.enabled && Input.GetKeyDown(KeyCode.V))
+        if (!collider.enabled && Input.GetKeyDown(KeyCode.V) && Time.timeScale != 0)
         {
             ChangePlayerInteract();
         }

@@ -35,14 +35,14 @@ public class RayCastShootComplete : MonoBehaviour {
 	void Update()
 	{
 
-		if (Input.GetButtonDown("Fire1") && Time.timeScale != 0)// Time.time > nextFire && ) 
+		if (Input.GetMouseButtonDown(0) && Time.timeScale != 0)// Time.time > nextFire && ) 
 		{
 			fire = true;
 			gunAudio.Play();
 			laserLine.enabled = true;
 		}
 
-		if (Input.GetButtonUp("Fire1"))
+		if (Input.GetMouseButtonUp(0))
 		{
 			fire = false;
 			gunAudio.Stop();

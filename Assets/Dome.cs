@@ -13,7 +13,7 @@ public class Dome : MonoBehaviour
  
 
     public Text energiaDoDomoText;
-    private int energiaDoDomo;
+    public int energiaDoDomo;
 
 
 
@@ -25,11 +25,11 @@ public class Dome : MonoBehaviour
     void Start()
     {
       
-        energiaDoDomo = 51;
+        energiaDoDomo = 15;
         energiaDoDomoText.text = energiaDoDomo + "%";
        
         time = 1;
-        segundos = time * 5;
+        segundos = time * 60;
        
     }
 
