@@ -174,20 +174,23 @@ public class AI : MonoBehaviour
 
         if (!Cheats.imortal)
         {
+
+
                  if (domo.GetForaDoDomo() || danoInicial)
                 {
-                    life -= Time.timeScale * 0.01f;
-                    lifeIndicatorSld.value = life;
+                   Debug.Log(danoInicial);
+                   life -= Time.timeScale * 0.1f;
+                   lifeIndicatorSld.value = life;
                 }
 
-                else if (!domo.GetForaDoDomo() && life < maxLife)
+                else if (!domo.GetForaDoDomo() && life < maxLife  )
                 {
                     if (life > maxLife)
                     {
                         life = maxLife;
                     }
 
-                    life += Time.timeScale * 0.01f;
+                    life += Time.timeScale * 0.1f;
                     lifeIndicatorSld.value = life;
                 }
 

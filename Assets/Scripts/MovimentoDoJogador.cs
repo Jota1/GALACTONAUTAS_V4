@@ -18,7 +18,7 @@ public class MovimentoDoJogador : MonoBehaviour
     bool noChao;
     float z;
     public float raioDetecao;
-
+    public GameObject luz;
 
 
     // Start is called before the first frame update
@@ -31,6 +31,15 @@ public class MovimentoDoJogador : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            if(luz.activeSelf)
+            {
+                luz.SetActive(false);
+            }
+
+            else luz.SetActive(true);
+        }
         //Cursor.lockState = CursorLockMode.Locked;
         //Cursor.visible = false;
 

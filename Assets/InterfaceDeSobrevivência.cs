@@ -27,7 +27,7 @@ public class InterfaceDeSobrevivência : MonoBehaviour
             }
         }
 
-        else if (Input.GetKeyDown(KeyCode.O) && UI.activeSelf == true)
+        else if (Input.GetKeyDown(KeyCode.O) && UI.activeSelf == true || Input.GetKeyDown(KeyCode.Escape) && UI.activeSelf == true)
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
