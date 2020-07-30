@@ -42,7 +42,7 @@ public class CraftingRecipe : ScriptableObject
         {
 
 
-            if (itemContainer.ItemCount(itemAmount.item.name) < itemAmount.Amount)
+            if (itemContainer.ItemCount(itemAmount.item.name, "Player") < itemAmount.Amount)
             {
 
                 Debug.LogWarning("You don't have the required materals.");
@@ -105,7 +105,7 @@ public class CraftingRecipe : ScriptableObject
             for (int i = 0; i < itemAmount.Amount; i++)
             {
                 // ItemAmount oldItem = itemContainer.RemoveItem(itemAmount.item.name) ;
-                Inventory.instance.Remove(itemAmount.item);
+                Inventory.instance.Remove(itemAmount.item, "Player");
             }
         }
     }
@@ -115,7 +115,7 @@ public class CraftingRecipe : ScriptableObject
         {
             for (int i = 0; i < itemAmount.Amount; i++)
             {
-                Inventory.instance.Add(itemAmount.item);
+                Inventory.instance.Add(itemAmount.item, "Player");
             }
         }
     }

@@ -5,13 +5,14 @@ using UnityEngine;
 public class TriggerFala : MonoBehaviour
 {
     public AI ai;
+    public GameObject barracaBussola;
     private float timer;
     private bool falainicial;
 
     private void Start()
     {
         falainicial = false;
-        timer = 10;
+        timer = 15;
     }
 
     private void Update()
@@ -22,6 +23,7 @@ public class TriggerFala : MonoBehaviour
         {
             ai.SetFalaAtiva(true);
             falainicial = true;
+            barracaBussola.SetActive(true);
             Destroy(gameObject);
         }
     }

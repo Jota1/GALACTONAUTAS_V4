@@ -85,7 +85,7 @@ public class Biomassa : MonoBehaviour
     {
 
 
-        if (itemContainer.ItemCount(item.name) < 1)
+        if (itemContainer.ItemCount(item.name, "Player") < 1)
         {
             Debug.LogWarning("You don't have the required materals.");
             return false;
@@ -99,7 +99,7 @@ public class Biomassa : MonoBehaviour
 
         //for (int i = 0; i < amoun; i++)
        // {
-            Inventory.instance.Remove(item);
+            Inventory.instance.Remove(item, "Player");
        // }
     }
 

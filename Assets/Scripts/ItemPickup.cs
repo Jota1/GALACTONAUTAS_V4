@@ -31,7 +31,7 @@ public class ItemPickup : Interactable
 		TextTime.feedbackString = "+ " + item.name;
 		TextTime.textAtivado = true;
 
-		Inventory.instance.Add(item);   // Adiciona ao inventário
+		Inventory.instance.Add(item, Inventory.currentInventory);   // Adiciona ao inventário
 
 		Destroy(gameObject);    // Destrói o item da cena
 	}

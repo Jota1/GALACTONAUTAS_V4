@@ -8,6 +8,7 @@ public class InventorySlot : MonoBehaviour
 
 	public Image icon;
 	public Button removeButton;
+	public string inventoryName;
 
 	Item item;  //Item atual no slot
 
@@ -34,7 +35,7 @@ public class InventorySlot : MonoBehaviour
 	// Se o botão remover for pressionado, esta função será chamada.
 	public void RemoveItemFromInventory()
 	{
-		Inventory.instance.Remove(item);
+		Inventory.instance.Remove(item, inventoryName);
 	}
 
 	// Usar o item

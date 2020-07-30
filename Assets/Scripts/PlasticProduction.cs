@@ -62,7 +62,7 @@ public class PlasticProduction : MonoBehaviour
         //{
         TextTime.feedbackString = "+ " + item.name;
         TextTime.textAtivado = true;
-        Inventory.instance.Add(item);
+        Inventory.instance.Add(item, "Player");
             
            // plastic--;
        // }

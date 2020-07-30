@@ -18,10 +18,10 @@ public class Item : ScriptableObject
 	}
 
 	// Chama este método para remover o item do inventário
-	public void RemoveFromInventory()
-	{
-		Inventory.instance.Remove(this);
-	}
+	//public void RemoveFromInventory()
+	//{
+	//	Inventory.instance.Remove(this);
+	//}
 
 	public virtual Item GetCopy()
 	{

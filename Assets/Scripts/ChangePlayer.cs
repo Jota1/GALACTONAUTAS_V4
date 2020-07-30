@@ -35,8 +35,10 @@ public class ChangePlayer : MonoBehaviour
        if(playerBool)
         {
             Debug.Log("hue");
-           // Inventory.currentInventory = "Car";
-           //inventoryUI.UpdateUIInventory();
+            Inventory.currentInventory = "Car";
+            inventory.changeInventory(Inventory.currentInventory);
+            InventoryUI.instance.ChangeInventory();
+        
             car.SetActive(true);
             car2.SetActive(false);
             player.SetActive(false);
@@ -47,8 +49,10 @@ public class ChangePlayer : MonoBehaviour
        else
         {
 
-            //Inventory.currentInventory = "Player";
-            //InventoryUI.instance.UpdateUI();
+            Inventory.currentInventory = "Player";
+            inventory.changeInventory(Inventory.currentInventory);
+            InventoryUI.instance.ChangeInventory();
+          
             player.SetActive(true);
             car2.transform.position = carPosition.position;
             car2.transform.rotation = carPosition.rotation;

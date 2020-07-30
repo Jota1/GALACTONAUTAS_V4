@@ -12,6 +12,6 @@ public interface ItemContainer
 
 	//void Clear();
 
-	int ItemCount(string itemName);
+	int ItemCount(string itemName,string inventory);
 
 }

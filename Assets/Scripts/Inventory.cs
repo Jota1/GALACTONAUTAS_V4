@@ -34,9 +34,10 @@ public class Inventory : MonoBehaviour, ItemContainer
 		items = itemsPlayer;
 	}
 	// Adicionar um novo item se houver espaço
-	public void Add(Item item)
+	public void Add(Item item, string inventory)
 	{
-		changeInventory();
+        changeInventory(inventory);
+
 
 		if (item.showInInventory)
 		{
@@ -54,9 +55,9 @@ public class Inventory : MonoBehaviour, ItemContainer
 	}
 
 	// Remover um item
-	public void Remove(Item item)
+	public void Remove(Item item, string inventory)
 	{
-		changeInventory();
+		changeInventory(inventory);
 
 		items.Remove(item);
 
@@ -66,9 +67,9 @@ public class Inventory : MonoBehaviour, ItemContainer
 
 
 	//Quantidades de itens com mesmo nome
-	public virtual int ItemCount(string itemName)
+	public virtual int ItemCount(string itemName, string inventory)
 	{
-		changeInventory();
+		changeInventory(inventory);
 
 		int number = 0;
 
@@ -83,19 +84,32 @@ public class Inventory : MonoBehaviour, ItemContainer
 		return number;
 	}
 
-	public void changeInventory()
+	public void changeInventory(string inv)
 	{
-		if (currentInventory == "Player")
+		if (inv == "Player")
 		{
 			space = spacePlayer;
-			items = itemsPlayer;
+		    items = itemsPlayer;
 		}
 
-		if (currentInventory == "Car")
+		if (inv == "Car")
 		{
 			space = spaceCar;
 			items = itemsCar;
 		}
+
+		//if (currentInventory == "Player")
+		//{
+		//	space = spacePlayer;
+		//items = itemsPlayer;
+		//}
+
+		///if (currentInventory == "Car")
+		//{
+		//	space = spaceCar;
+		//	items = itemsCar;
+		//}
 	}
+
 
 }

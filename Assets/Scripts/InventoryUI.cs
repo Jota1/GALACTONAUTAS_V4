@@ -19,16 +19,18 @@ public class InventoryUI : MonoBehaviour
 	public GameObject inventoryUICar;
 	public Transform itemsParent;   // Objeto pai de todos os itens
 
-	public GameObject inventoryUI ;
+	private GameObject inventoryUI ;
 
 	Inventory inventory;    // Inventário Atual
-
+	
 	private bool cursorLocked = true;
 
 	void Start()
 	{
+		
 		inventory = Inventory.instance;
 		inventoryUI = inventoryUIPlayer;
+
 		inventory.onItemChangedCallback += UpdateUI;
 
 	}
@@ -39,6 +41,7 @@ public class InventoryUI : MonoBehaviour
 
 		if (Input.GetKeyDown(KeyCode.I) && inventoryUI.activeSelf == false && Time.timeScale != 0)
 		{
+
 			Cursor.lockState = CursorLockMode.None;
 			Cursor.visible = true;
 			UpdateInterface.CursorLock = false;
@@ -67,10 +70,6 @@ public class InventoryUI : MonoBehaviour
 
 	}
 
-	public void UpdateUIInventory()
-	{
-		UpdateUI();
-	}
 
 	// Atualiza a UI do inventário by:
 	//		- Adicionando itens
@@ -91,6 +90,19 @@ public class InventoryUI : MonoBehaviour
 			{
 				slots[i].ClearSlot();
 			}
+		}
+	}
+
+	public void ChangeInventory()
+	{
+		if (Inventory.currentInventory == "Player")
+		{
+			inventoryUI = inventoryUIPlayer;
+		}
+
+		if (Inventory.currentInventory == "Car")
+		{
+			inventoryUI = inventoryUICar;
 		}
 	}
 
